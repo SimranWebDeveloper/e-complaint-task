@@ -22,17 +22,16 @@ export const Header = () => {
         {/* hamburger */}
       <div
         className={` absolute h-screen top-0 left-0  py-7  flex flex-col items-end  border rounded  bg-gradient-to-t to-[#F5F7FB] from-[#C6C6C7] shadow-lg shadow-stone-700 transition-all duration-700  ${
-          isOpen ? 'w-64 px-4 ' : 'w-20 px-7 '
+          isOpen ? 'w-64 px-4  responsiveHamburger' : 'w-20 px-7 '
         }`}
       >
         
-          
-         
+          {/* logo and btn */}         
         {isOpen ? 
                 <div className={`flex justify-end`}>
-                    <img src={logoFull} alt="" style={{maxWidth:'unset'}} className={` w-44 transition-all duration-300   'opacity-100  `} />
+                    <img src={logoFull} alt="" style={{maxWidth:'unset'}} className={` w-44 transition-all duration-300   opacity-100  `} />
                     <button className=' ' onClick={() => setIsOpen(false)} >
-                    <BiMenuAltRight className='w-6 h-6 ' />
+                    <BiMenuAltRight className='w-6 h-6 '/>
                 </button>
                 </div>
                 
@@ -45,24 +44,70 @@ export const Header = () => {
         }
 
 
+        {/* yeni complaint */}
+<div  className={`flex  flex-col mt-4 space-y-1 font-pop transition duration-700 py-4   `}>
+              {isOpen ? 
+                <div className={`flex text-nowrap  items-center p-4 bg-white border rounded shadow   hover:bg-[#E2E3E4] `}>
+                    <button className='' onClick={() => setIsOpen(false)} >
+                      <FaPlus className="mr-2"/>
+                    </button>
+                    <span style={{maxWidth:'unset'}} className={` w-44 transition-all duration-300   opacity-100 text-[15px] `} >Yeni şikayət yarat</span>
 
+                </div>
+                
+            :   <div className={`flex`}>
+                    <button className='order-2 p-4 translate-x-2  bg-white border rounded shadow shadow-stone-400 w-12' onClick={() => setIsOpen(true)} >
+                      <FaPlus className="mr-2"/>
+                 </button>
+                 <span style={{maxWidth:'unset'}} className={`order-1 w-44 transition-all duration-300   opacity-0 text-[15px] `} >Yeni şikayət yarat</span>
 
-{/*             
-      <div  className={`flex flex-col space-y-2 font-pop transition duration-700 py-4 `} >
-      <button className="flex text-nowrap items-center p-4 bg-white border rounded shadow   hover:bg-[#E2E3E4] ">
-        <FaPlus className="mr-2"/>
-        <span className={`text-[15px] ${isOpen ? 'opacity-100' : 'opacity-0'}`}>Yeni şikayət yarat</span>
-      </button>
-      
-      <button className="flex text-nowrap items-center p-4 bg-white border rounded shadow  hover:bg-[#E2E3E4]">
-        <TfiMenuAlt className='mr-2' />
-        <span className='text-[15px]'>Şikayətlər</span>
-      </button>
-      <button className="flex text-nowrap  items-center p-4 bg-white border rounded shadow hover:bg-[#E2E3E4] ">
-        <TbHandClick className="mr-2"/>
-        <span className='text-[12px]'>İstehlakçı təcrübəsi sorğusu</span>
-      </button>
-        </div> */}
+                 </div>
+        }
+  </div>
+
+  {/* complaints */}
+  <div  className={`flex  flex-col  space-y-1 font-pop transition duration-700 py-4  `}>
+              {isOpen ? 
+                <div className={`flex text-nowrap items-center p-4 bg-white border rounded shadow   hover:bg-[#E2E3E4] `}>
+                    <button className=' ' onClick={() => setIsOpen(false)} >
+                      <TfiMenuAlt className="mr-2"/>
+                    </button>
+                    <span style={{maxWidth:'unset'}} className={` w-44 transition-all duration-300   'opacity-100 text-[15px] `} >Yeni şikayət yarat</span>
+
+                </div>
+                
+            :   <div className={`flex`}>
+                    <button className='order-2 p-4 translate-x-2  bg-white border rounded shadow shadow-stone-400 w-12' onClick={() => setIsOpen(true)} >
+                      <TfiMenuAlt className="mr-2"/>
+                 </button>
+                 <span style={{maxWidth:'unset'}} className={`order-1 w-44 transition-all duration-300   opacity-0 text-[15px] `} >Yeni şikayət yarat</span>
+
+                 </div>
+        }
+  </div>
+
+{/* questions */}
+  <div  className={`flex  flex-col  space-y-1 font-pop transition duration-700 py-4  `}>
+              {isOpen ? 
+                <div className={`flex text-nowrap items-center p-4 bg-white border rounded shadow   hover:bg-[#E2E3E4] `}>
+                    <button className=' ' onClick={() => setIsOpen(false)} >
+                      <TbHandClick className="mr-2"/>
+                    </button>
+                    <span style={{maxWidth:'unset'}} className={` w-44 transition-all duration-300   'opacity-100 text-[15px] `} >Yeni şikayət yarat</span>
+
+                </div>
+                
+            :   <div className={`flex`}>
+                    <button className='order-2 p-4 translate-x-2  bg-white border rounded shadow shadow-stone-400 w-12' onClick={() => setIsOpen(true)} >
+                      <TbHandClick className="mr-2"/>
+                 </button>
+                 <span style={{maxWidth:'unset'}} className={`order-1 w-44 transition-all duration-300   opacity-0 text-[15px] `} >Yeni şikayət yarat</span>
+
+                 </div>
+        }
+  </div>
+  
+            
 
 
         
@@ -70,7 +115,7 @@ export const Header = () => {
         
         
         
-        <div  className={`flex flex-col space-y-2 font-pop transition duration-700 py-4 ${isOpen ? 'opacity-100' : 'opacity-0'}`} >
+        {/* <div  className={`flex flex-col space-y-2 font-pop transition duration-700 py-4 ${isOpen ? 'opacity-100' : 'opacity-0'}`} >
       <button className="flex text-nowrap items-center p-4 bg-white border rounded shadow   hover:bg-[#E2E3E4] ">
         <FaPlus className="mr-2"/>
         <span className='text-[15px]'>Yeni şikayət yarat</span>
@@ -83,7 +128,7 @@ export const Header = () => {
         <TbHandClick className="mr-2"/>
         <span className='text-[12px]'>İstehlakçı təcrübəsi sorğusu</span>
       </button>
-        </div>
+        </div> */}
 
       </div>
         
