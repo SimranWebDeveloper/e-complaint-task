@@ -7,7 +7,14 @@ module.exports = {
     extend: {
       colors: {
         'gray_default': '#BDBDBD',
-      }
+        'blue_default': '#3C6CB4',
+      },
+      borderRadius: {
+        'default': '1.25rem',
+      },
+    },
+    fontSize:{
+      'default': '0.875rem',
     },
     fontFamily:{
       pop:['Poppins'] 

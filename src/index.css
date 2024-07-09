@@ -6,9 +6,16 @@
 @tailwind utilities;
 
 
-
+/* conatainer */
+.container-custom {
+    @apply ps-28 px-10;
+  }
+/* header */
 @media screen and (max-width: 682px) {
     .responsiveHamburger{
         width: 100% !important;
+    }
+    .responsiveLogo{
+        justify-content: space-between !important;
     }
   }
