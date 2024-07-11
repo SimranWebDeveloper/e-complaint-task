@@ -34,3 +34,32 @@
     font-weight: 500;
     font-family: 'poppins';
   }
+
+  .custom-empty {
+    font-size: 16px; /* Change font size */
+    font-size: 'bold';
+    text-align: center; /* Center the text */
+    padding: 2rem;
+  }
+
+
+.ant-pagination {
+  margin-top: 16px;
+  display: flex;
+  justify-content: end !important;
+  align-items: center;
+  padding: 10px 0; /* Customize as needed */
+}
+
+.ant-pagination-total-text {
+
+  margin-right: 20px; /* Customize as needed */
+}
+
+.ant-pagination-item {
+  border: none; /* Customize as needed */
+}
+
+.ant-pagination-item-active {
+  font-weight: bold; /* Customize as needed */
+}

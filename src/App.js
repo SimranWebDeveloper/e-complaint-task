@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./router/AppLayout";
-import { Home } from "./pages/home/Home";
+import { My_complaints } from "./pages/my_complaints/My_complaints";
+import { New_complaint } from "./pages/new_complaint/New_complaint";
 
 function App() {
   const router = createBrowserRouter([
@@ -9,16 +10,12 @@ function App() {
       children: [
         { 
           path: '/',
-          element: <Home />
-        },
-        // {
-        //   path: '/contact',
-        //   element: <Contact />
-        // },
-        // {
-        //   path: '/about',
-        //   element: <About/>
-        // }, 
+          element: <My_complaints />
+        }, 
+        { 
+          path: '/new_complaint',
+          element: <New_complaint />
+        }, 
       ]
     }
   ]);

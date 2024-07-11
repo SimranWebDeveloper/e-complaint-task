@@ -12,9 +12,9 @@ module.exports = {
       borderRadius: {
         'default': '1.25rem',
       },
-    },
-    fontSize:{
-      'default': '0.875rem',
+      fontSize:{
+        'my_default': '0.875rem',
+      },
     },
     fontFamily:{
       pop:['Poppins'] 
