@@ -37,25 +37,25 @@ export const Header = () => {
           {/* menus */}
           <div  className={`w-full flex flex-col space-y-2 mt-4 font-pop transition duration-700 py-4 relative  `}>
               
-              <button to='/new_complaint'  className={`w-full  flex  flex-nowrap ${isOpen ? 'items-start  ':'items-center  '} bg-white py-4 border rounded shadow   `}>
-                  <NavLink to='/new_complaint'  className='px-[14px] hover:bg-[#E2E3E4] '  >
+              <NavLink to='/new_complaint'  className={`w-full  flex  flex-nowrap ${isOpen ? 'items-start  ':'items-center  '} bg-white py-4 border rounded shadow  hover:bg-[#E2E3E4] `}>
+                  <button   className='px-[14px]  '  >
                     <FaPlus className="mr-2 "/>
-                  </NavLink>
-                  <span  style={{}}  className={`transition-all duration-700  text-nowrap ${isOpen ? 'opacity-100 ':'opacity-0'}  text-[15px] absolute left-8 px-3`} >Yeni şikayət yarat</span>
-              </button>
+                  </button>
+                  <span  style={{}}  className={`transition-all duration-700  text-nowrap pointer-events-none ${isOpen ? 'opacity-100 ':'opacity-0'}  text-[15px] absolute left-8 px-3`} >Yeni şikayət yarat</span>
+              </NavLink>
 
               <NavLink to='/' className={`w-full flex flex-nowrap  ${isOpen ? 'items-start':'items-center'} bg-white py-4 border rounded shadow   hover:bg-[#E2E3E4]`}>
                   <button  className='px-[14px]'  >
                   <TfiMenuAlt className="mr-2"/>
                   </button>
-                  <span style={{}}  className={`px-3 transition-all duration-700  text-nowrap ${isOpen ? 'opacity-100':'opacity-0'}  text-[15px] absolute left-8 px-3`} >Şikayətlər</span>
+                  <span style={{}}  className={`px-3 transition-all duration-700  text-nowrap pointer-events-none ${isOpen ? 'opacity-100':'opacity-0'}  text-[15px] absolute left-8 px-3`} >Şikayətlər</span>
               </NavLink>
 
-              <NavLink to='/' className={`w-full flex flex-nowrap  ${isOpen ? 'items-start':'items-center'} bg-white py-4 border rounded shadow   hover:bg-[#E2E3E4]`}>
+              <NavLink to='https://docs.google.com/forms/d/e/1FAIpQLSc-1AMXNpayyZXs-iGtaHXnyiLsbTc9hwFpBwbrXVxvqwx8AA/viewform' target='_blank' className={`w-full flex flex-nowrap  ${isOpen ? 'items-start':'items-center'} bg-white py-4 border rounded shadow   hover:bg-[#E2E3E4]`}>
                   <button className='px-[14px]'  >
                   <TbHandClick className="mr-2"/>
                   </button>
-                  <span style={{}}  className={`px-2 transition-all duration-700  text-nowrap ${isOpen ? 'opacity-100':'opacity-0'}  text-[13px] absolute left-8 px-2`} >İstehlakçı təcrübəsi sorğusu</span>
+                  <span style={{}}  className={`px-2 transition-all duration-700  text-nowrap pointer-events-none ${isOpen ? 'opacity-100':'opacity-0'}  text-[13px] absolute left-8 px-2`} >İstehlakçı təcrübəsi sorğusu</span>
               </NavLink>
 
           </div>
