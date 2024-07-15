@@ -19,7 +19,10 @@ module.exports = {
     fontFamily:{
       pop:['Poppins'] 
     },
+
     screens: {
+      'custom': '1200px',
+
       'sm': '500px',
 
 
