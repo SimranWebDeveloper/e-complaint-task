@@ -54,21 +54,44 @@ const standartLabel="  <label for='file-upload' id='upload-label'  className='fl
 let index = 0;
 
 export const New_complaint = () => {
+  const [json, setJson] = useState({
+    type:'fealiyyet',
+    characteristic:""
+  });
+
   const [form] = Form.useForm();
 
   const onGenderChange = (value) => {
-    switch (value) {
-      case 'male':
-        form.setFieldsValue({ note: 'Hi, man!' });
-        break;
-      case 'female':
-        form.setFieldsValue({ note: 'Hi, lady!' });
-        break;
-      case 'other':
-        form.setFieldsValue({ note: 'Hi there!' });
-        break;
-      default:
-    }
+
+    setJson((prev)=>{
+      return {
+        ...prev,
+        type:value
+      }
+    })
+
+    // switch (value) {
+    //   case 'male':
+    //     form.setFieldsValue({ note: 'Hi, man!' });
+    //     break;
+    //   case 'female':
+    //     form.setFieldsValue({ note: 'Hi, lady!' });
+    //     break;
+    //   case 'other':
+    //     form.setFieldsValue({ note: 'Hi there!' });
+    //     break;
+    //   default:
+    // }
+  };
+  const onCharacteristicChange = (value) => {
+
+    setJson((prev)=>{
+      return {
+        ...prev,
+        characteristic:value
+      }
+    })
+
   };
 
   const onFinish = (values) => {
@@ -130,7 +153,7 @@ const addItem = (e) => {
         Şikayət məlumatları
       </h1>
       {/* section 1 */}
-      <div className='grid grid-cols-4 gap-4 p-7   '>
+      <div className='grid grid-cols-4  gap-4 p-7   '>
 
         {/* ipt1  Şikayət etdiyiniz fəaliyyət sahəsi */}
         <Form.Item 
@@ -162,6 +185,7 @@ const addItem = (e) => {
         rules={[{ required: true }]} 
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
+        
 
         className='w-full col-span-4 custom:col-span-1 order-2 custom:order-4 font-pop text-6xl font-[500]'>
 
@@ -169,6 +193,7 @@ const addItem = (e) => {
           placeholder="Select a option and change input text above"
           onChange={onGenderChange}
           allowClear
+          disabled={json.type === "fealiyyet" ? true : false}
         >
           <Option value="Telefon rabitəsi">Telefon rabitəsi</Option>
           <Option value="Fəaliyyət sahəsi">Fəaliyyət sahəsi</Option>
@@ -194,8 +219,10 @@ const addItem = (e) => {
 
         <Select
           placeholder="Select a option and change input text above"
-          onChange={onGenderChange}
+          onChange={onCharacteristicChange}
           allowClear
+          disabled={json.type === "fealiyyet" ? true : false}
+
         >
           <Option value="Telefon rabitəsi">Telefon rabitəsi</Option>
           <Option value="Fəaliyyət sahəsi">Fəaliyyət sahəsi</Option>
@@ -224,6 +251,8 @@ const addItem = (e) => {
           placeholder="Select a option and change input text above"
           onChange={onGenderChange}
           allowClear
+          disabled={json.characteristic === "" ? true : false}
+
         >
           <Option value="Telefon rabitəsi">Telefon rabitəsi</Option>
           <Option value="Fəaliyyət sahəsi">Fəaliyyət sahəsi</Option>
@@ -237,26 +266,36 @@ const addItem = (e) => {
       </Form.Item>
 
         {/* ipt5 Abunəçi kodu */}
-      <Form.Item
-        name="Abunəçi kodu Name"
-        layout="Abunəçi kodu Layout"
-        label={<p className='font-pop text-[15px] font-semibold'>Abunəçi kodu </p>}
+        <div className='col-span-4 custom:col-span-2 order-5 custom:order-2'>
 
-        rules={[{ required: true }]}
-        labelCol={{ span: 24 }}
-        wrapperCol={{ span: 24 }}
         
-        className='w-full col-span-4 custom:col-span-2 order-5 custom:order-2'
-      >
-        <Input style={{fontSize:'16px'}} />
-      </Form.Item>
+        {
+          json.type === "internet" || json.type === "telefon" || json.type === "fealiyyet" ?    
+          <Form.Item
+          name="Abunəçi kodu Name"
+          layout="Abunəçi kodu Layout"
+          label={<p className='font-pop text-[15px] font-semibold'>Abunəçi kodu </p>}
+  
+          rules={[{ required: true }]}
+          labelCol={{ span: 24 }}
+          wrapperCol={{ span: 24 }}
+          
+          className='w-full '
+        >
+          <Input style={{fontSize:'16px'}} />
+        </Form.Item>
+        : null
+        }
+        </div>
+
 
       {/* ipt6 Şikayət mətni */}
-      <div className='w-full col-span-4 row-span-3 custom:col-span-2 order-6 custom:order-5 '>
+      <div className='w-full  col-span-4 row-span-3 custom:col-span-2 order-6 custom:order-5 '>
       <Flex vertical gap={32}>
       <label className="block text-sm  text-gray-700 font-pop text-[15px] font-semibold">
         Şikayət mətnİ
         <span className="text-xs text-gray-500"> (Qalan simvol sayı: 
+          
           <span style={{ color: text.length > maxLength ? 'red' : 'green' }}>
             {maxLength - text.length}
           </span>)
